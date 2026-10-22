@@ -35,6 +35,7 @@ public class Name
             if (string.IsNullOrWhiteSpace(value))
             {
                 Console.WriteLine("Личное имя должно быть задано");
+                _firstname = "Ivan(null)";
             }
             else
             {
