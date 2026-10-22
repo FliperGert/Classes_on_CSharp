@@ -2,30 +2,33 @@ using System;
 
 public class Cat
 {
-    private string name;
-
-    public string Name
-    {
-        get { return name; }
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException("У кота должно быть имя");
-            }
-
-            name = value;
-        }
-    }
+    private string _name;
 
     public Cat(string name)
     {
         Name = name;
     }
 
+    public string Name
+    {
+        get { return _name; }
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                Console.WriteLine("У кота должно быть имя");
+                _name = "Барсик(null)";
+            }
+            else
+            {
+                _name = value;
+            }
+        }
+    }
+
     public void Meow()
     {
-        Console.WriteLine($"{name}: мяу!");
+        Console.WriteLine($"{_name}: мяу!");
     }
 
     public void Meow(int n)
@@ -42,11 +45,11 @@ public class Cat
             result += "мяу";
         }
 
-        Console.WriteLine($"{name}: {result}!");
+        Console.WriteLine($"{_name}: {result}!");
     }
 
     public override string ToString()
     {
-        return $"кот: {name}";
+        return $"кот: {_name}";
     }
 }

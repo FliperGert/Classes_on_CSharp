@@ -7,6 +7,7 @@ internal class Program
     {
         bool work = true;
         List<Human> people = new List<Human>();
+        int choice = 0;
 
         while (work)
         {
@@ -28,7 +29,7 @@ internal class Program
             Console.WriteLine(" 9.Показать созданных людей\t");
             Console.WriteLine("0.Выход");
 
-            int choice = Check.InputInt("Введите номер задачи:");
+            choice = Check.InputInt("Введите номер задачи:");
 
             switch (choice)
             {

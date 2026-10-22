@@ -2,29 +2,29 @@ using System;
 
 public class Route
 {
-    private City destination;
-    private int cost;
+    private City _destination;
+    private int _cost;
+
+    public Route(City _destination, int _cost)
+    {
+        Destination = _destination;
+        Cost = _cost;
+    }
 
     public City Destination
     {
-        get { return destination; }
-        set { destination = value; }
+        get { return _destination; }
+        set { _destination = value; }
     }
 
     public int Cost
     {
-        get { return cost; }
-        set { cost = value; }
-    }
-
-    public Route(City destination, int cost)
-    {
-        Destination = destination;
-        Cost = cost;
+        get { return _cost; }
+        set { _cost = value; }
     }
 
     public override string ToString()
     {
-        return $"{destination.Name}:{cost}";
+        return $"{_destination.Name}:{_cost}";
     }
 }

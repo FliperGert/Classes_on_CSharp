@@ -2,35 +2,9 @@ using System;
 
 public class Name
 {
-    private string surname;
-    private string firstname;
-    private string middlename;
-
-    public string Surname
-    {
-        get { return surname; }
-        set { surname = value; }
-    }
-
-    public string Firstname
-    {
-        get { return firstname; }
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException("Личное имя должно быть задано");
-            }
-
-            firstname = value;
-        }
-    }
-
-    public string Middlename
-    {
-        get { return middlename; }
-        set { middlename = value; }
-    }
+    private string _surname;
+    private string _firstname;
+    private string _middlename;
 
     public Name(string firstname) : this(firstname, null, null)
     {
@@ -47,18 +21,46 @@ public class Name
         Middlename = middlename;
     }
 
+    public string Surname
+    {
+        get { return _surname; }
+        set { _surname = value; }
+    }
+
+    public string Firstname
+    {
+        get { return _firstname; }
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                Console.WriteLine("Личное имя должно быть задано");
+            }
+            else
+            {
+                _firstname = value;
+            }
+        }
+    }
+
+    public string Middlename
+    {
+        get { return _middlename; }
+        set { _middlename = value; }
+    }
+
     public override string ToString()
     {
-        string result = firstname;
+        string result = _firstname;
 
-        if (!string.IsNullOrWhiteSpace(surname))
+        if (!string.IsNullOrWhiteSpace(_surname))
         {
-            result = $"{surname} {result}";
+            result = $"{_surname} {result}";
         }
 
-        if (!string.IsNullOrWhiteSpace(middlename))
+        if (!string.IsNullOrWhiteSpace(_middlename))
         {
-            result = $"{result} {middlename}";
+            result = $"{result} {_middlename}";
         }
 
         return result;
