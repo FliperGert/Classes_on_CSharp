@@ -43,12 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cat.cs" />
     <Compile Include="Check.cs" />
+    <Compile Include="City.cs" />
     <Compile Include="Human.cs" />
-    <Compile Include="Human_with_name.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Route.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

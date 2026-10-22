@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 public class Name
 {
@@ -15,29 +15,29 @@ public class Name
     public string Firstname
     {
         get { return firstname; }
-        set { firstname = value; }
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Личное имя должно быть задано");
+            }
 
+            firstname = value;
+        }
     }
 
     public string Middlename
     {
         get { return middlename; }
         set { middlename = value; }
-
     }
 
-    public Name(string firstname)
+    public Name(string firstname) : this(firstname, null, null)
     {
-        Firstname = firstname;
-        this.surname = null;
-        this.middlename = null;
     }
 
-    public Name(string firstname, string surname)
+    public Name(string firstname, string surname) : this(firstname, surname, null)
     {
-        Firstname = firstname;
-        Surname = surname;
-        this.middlename = null;
     }
 
     public Name(string firstname, string surname, string middlename)
@@ -47,20 +47,20 @@ public class Name
         Middlename = middlename;
     }
 
-
     public override string ToString()
     {
-        if (!string.IsNullOrWhiteSpace(surname) && !string.IsNullOrWhiteSpace(middlename))
+        string result = firstname;
+
+        if (!string.IsNullOrWhiteSpace(surname))
         {
-            return $"{firstname}";
+            result = $"{surname} {result}";
         }
-        else if (!string.IsNullOrWhiteSpace(middlename))
+
+        if (!string.IsNullOrWhiteSpace(middlename))
         {
-            return $"{surname} {firstname}";
+            result = $"{result} {middlename}";
         }
-        else
-        {
-            return $"{surname} {firstname} {middlename}";
-        }
+
+        return result;
     }
 }
