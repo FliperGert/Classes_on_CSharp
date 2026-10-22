@@ -114,7 +114,7 @@ internal class Program
                         Console.Write("Результат: ");
                         for (int i = 0; i < cities.Length; i++)
                         {
-                            if (string.Equals(cities[i].Name, cityName, StringComparison.OrdinalIgnoreCase))
+                            if (cities[i].Name == cityName)
                             {
                                 Console.WriteLine(cities[i]);
                                 isFound = true;
@@ -193,10 +193,10 @@ internal class Program
                             Console.WriteLine("Созданные люди:");
                             for (int i = 0; i < people.Count; i++)
                             {
-                                Console.WriteLine($"{i + 1}. {people[i]}");
+                                Console.WriteLine($"{i+1}. {people[i]}");
                             }
 
-                            int number = Check.InputInt("Введите номер отца (0 - без отца):", 0, people.Count);
+                            int number = Check.InputInt("Введите номер отца (или ноль - это без отца):", 0, people.Count);
                             if (number > 0)
                             {
                                 father = people[number - 1];
