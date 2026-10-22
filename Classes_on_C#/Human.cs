@@ -90,16 +90,6 @@ public class Human
 
     private static string MakeMiddlename(string fatherName)
     {
-        if (fatherName == "Лев")
-        {
-            return "Львович";
-        }
-
-        if (fatherName == "Пётр")
-        {
-            return "Петрович";
-        }
-
         char last = fatherName[fatherName.Length - 1];
         string stem = fatherName.Substring(0, fatherName.Length - 1);
 
